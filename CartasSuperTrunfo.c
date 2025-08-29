@@ -5,12 +5,14 @@ int main(){
 //carta 1
 int numeros_pontos_turisticos = 0;
 char estado[20], cod_carta[4], nome_cidade[15];
-double area = 0, pib = 0, populacao = 0, densidade_populacional = 0, pib_per_capita = 0;
+double area = 0, pib = 0, densidade_populacional = 0, pib_per_capita = 0, super_poder = 0;
+unsigned long int populacao = 0;
 
 //carta 2
 char estado1[20], cod_carta1[4], nome_cidade1[15];
 int numeros_pontos_turisticos1 = 0;
-double area1 = 0, pib1 = 0, populacao1 = 0, densidade_populacional1 = 0, pib_per_capita1 = 0;
+double area1 = 0, pib1 = 0, densidade_populacional1 = 0, pib_per_capita1 = 0, super_poder1 = 0;
+unsigned long int populacao1 = 0;
 
 //Criando cartas
 //Carta 1
@@ -72,7 +74,10 @@ printf("Área: %.2f KM²\n", area);
 printf("PIB: %.2f bilhões de reais\n", pib);
 printf("Número de Pontos Turísticos: %d\n", numeros_pontos_turisticos);
 printf("Densidade Populacional: %.2f hab/Km²\n", densidade_populacional = populacao / area);
-printf("PIB per Capita: %.2f reais\n\n", pib_per_capita = pib / populacao);
+printf("PIB per Capita: %.2f reais\n", pib_per_capita = pib / populacao);
+printf("Super poder: %ld\n\n", super_poder = (populacao + area + pib + numeros_pontos_turisticos + pib_per_capita + densidade_populacional));
+
+//população, área, PIB, número de pontos turísticos, PIB per capita e o inverso da densidade populacional
 
 //Carta 2
 printf("Carta 2:\n");
@@ -84,8 +89,36 @@ printf("Área: %.2f KM²\n", area1);
 printf("PIB: %.2f bilhões de reais\n", pib1);
 printf("Número de Pontos Turísticos: %d\n", numeros_pontos_turisticos1);
 printf("Densidade Populacional: %.2f hab/Km²\n", densidade_populacional1 = populacao1 / area1);
-printf("PIB per Capita: %.2f reais", pib_per_capita1 = pib1 / populacao1);
+printf("PIB per Capita: %.2f reais\n", pib_per_capita1 = pib1 / populacao1);
+printf("Super poder: %ld\n\n", super_poder1 = (populacao1 + area1 + pib1 + numeros_pontos_turisticos1 + pib_per_capita1 + densidade_populacional1));
 
+printf("Comparação de cartas:\nOBS.: Se a carta tiver valor 1 ela venceu se tiver 0, perdeu/\n");
+printf("População: Carta 1 venceu (%d)\n", populacao > populacao1);
+printf("Área: Carta 1 venceu (%d)\n", area > area1);
+printf("PIB: Carta 1 venceu (%d)\n", pib > pib1);
+printf("Pontos Turísticos: Carta 1 venceu (%d)\n", numeros_pontos_turisticos > numeros_pontos_turisticos1);
+printf("Desnsidade Populacional: Carta 1 venceu (%d)\n", densidade_populacional > densidade_populacional1);
+printf("PIB per Capita: Carta 1 venceu (%d)\n", pib_per_capita > pib_per_capita1);
+printf("Super Poder: Carta 1 venceu (%d)\n", super_poder > super_poder1);
+
+
+/*
+Comparação de Cartas:
+
+População: Carta 1 venceu (1)
+
+Área: Carta 1 venceu (1)
+
+PIB: Carta 1 venceu (1)
+
+Pontos Turísticos: Carta 1 venceu (1)
+
+Densidade Populacional: Carta 2 venceu (0)
+
+PIB per Capita: Carta 1 venceu (1)
+
+Super Poder: Carta 1 venceu (1)
+*/
 
 return 0;
 }
